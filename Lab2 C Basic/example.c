@@ -123,7 +123,7 @@ void explorePointersAndMemory()
     // Print the value of x and the value stored at the pointer (dereferenced)
     printf("x = %d, *ptr = %d\n", x, *ptr);
 
-    // Dynamic memory allocation using malloc()
+    // Dynamic memory allocation using malloc() /mah-lok/
     int *dynamicArray = (int *)malloc(3 * sizeof(int)); // Allocate memory for an array of 3 integers
     if (dynamicArray != NULL)                           // Check if malloc succeeded
     {
@@ -137,34 +137,53 @@ void explorePointersAndMemory()
     }
 }
 
-// Structs and Unions
-// Function to demonstrate the use of structs and unions in C
+// Structs and Unions Explanation
+// Function to demonstrate the differences between structs and unions in C
 void exploreStructsAndUnions()
 {
-    // Define and initialize a struct called Person
+    // Example: Defining a struct
+    // In a struct, each field has its own memory and they can be accessed independently.
     struct Person
     {
-        char name[50];           // Field to store the person's name
-        int age;                 // Field to store the person's age
-    } person = {"John Doe", 30}; // Create an instance of Person with values
+        char name[50]; // Field to store the person's name
+        int age;       // Field to store the person's age
+    };
 
-    // Print the struct's fields
-    printf("Person: %s, Age: %d\n", person.name, person.age);
+    struct Person person1 = {"Alice", 25}; // Create an instance of Person with values
 
-    // Define a union that can store either an int or a float
+    // Accessing each field in the struct separately
+    // `person1.name` and `person1.age` each have their own memory
+    printf("Struct Example:\n");
+    printf("Person: %s, Age: %d\n", person1.name, person1.age); // Print the struct's fields
+
+    // Example: Defining a union
+    // In a union, all fields share the same memory, so only one field can store a value at any given time.
     union Data
     {
         int intVal;     // Integer field
         float floatVal; // Float field
-    } data;
+    };
+
+    union Data data; // Declare an instance of union Data
 
     // Assign a value to the integer field of the union
-    data.intVal = 5;
-    printf("Union intVal: %d\n", data.intVal); // Print the integer value
+    data.intVal = 100; // intVal now holds the value 100
+    printf("\nUnion Example (After assigning intVal):\n");
+    printf("intVal: %d\n", data.intVal); // Print the integer value
 
-    // Assign a value to the float field (overwrites the integer value)
-    data.floatVal = 3.14f;
-    printf("Union floatVal: %f\n", data.floatVal); // Print the float value
+    // Assign a value to the float field of the union
+    // This will overwrite the previous value in intVal, because both intVal and floatVal share the same memory
+    data.floatVal = 3.14f;                   // floatVal now holds 3.14, intVal is no longer valid
+    printf("floatVal: %f\n", data.floatVal); // Print the float value
+
+    // Trying to access intVal now will give an undefined result, because the memory is overwritten by floatVal
+    printf("intVal (after assigning floatVal): %d (undefined behavior)\n", data.intVal);
+
+    /*
+     * Key Difference:
+     * - Struct: Each member has its own memory and all members can be accessed independently.
+     * - Union: All members share the same memory. At any given time, only one member can store a valid value.
+     */
 }
 
 // Main function: Entry point of the program
