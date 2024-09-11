@@ -32,6 +32,7 @@ void exploreDataTypes()
            aChar, anInteger, aLong, aFloat, aDouble);
 
     // Fixed-width integer types using stdint.h for portability
+    short aShort = 32767;                         // Short integer
     int8_t smallInt = 127;                        // 8-bit signed integer
     int16_t mediumInt = 32767;                    // 16-bit signed integer
     int32_t largeInt = 2147483647;                // 32-bit signed integer
@@ -161,7 +162,8 @@ void exploreStructsAndUnions()
     union Data
     {
         int intVal;     // Integer field
-        float floatVal; // Float field
+        float floatVal; // Float field 4 bytes
+        long double longDoubleVal; // Long double field 8 bytes
     };
 
     union Data data; // Declare an instance of union Data

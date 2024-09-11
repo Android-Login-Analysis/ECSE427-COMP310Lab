@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     double_free_bug
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _create_person, symObjAddr: 0x0, symBinAddr: 0x100003D30, symSize: 0xDC }
+  - { offsetInCU: 0x7A, offset: 0x7A, size: 0x8, addend: 0x0, symName: _create_person, symObjAddr: 0x0, symBinAddr: 0x100003D30, symSize: 0xDC }
+  - { offsetInCU: 0xBE, offset: 0xBE, size: 0x8, addend: 0x0, symName: _delete_person, symObjAddr: 0xDC, symBinAddr: 0x100003E0C, symSize: 0x30 }
+  - { offsetInCU: 0xE2, offset: 0xE2, size: 0x8, addend: 0x0, symName: _process_people, symObjAddr: 0x10C, symBinAddr: 0x100003E3C, symSize: 0xB4 }
+  - { offsetInCU: 0x114, offset: 0x114, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1C0, symBinAddr: 0x100003EF0, symSize: 0x2C }
+...
