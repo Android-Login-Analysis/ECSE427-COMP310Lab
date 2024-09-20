@@ -1,6 +1,14 @@
 #include <pthread.h>
 #include <stdio.h>
 
+/*
+atomic_int counter = 0;
+
+void increment() {
+    atomic_fetch_add(&counter, 1);  // Atomically increments 'counter' by 1
+}
+*/
+
 int shared_var = 0;
 
 void *increment(void *arg)
