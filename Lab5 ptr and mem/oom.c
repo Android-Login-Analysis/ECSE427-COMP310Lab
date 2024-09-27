@@ -13,11 +13,11 @@ int main()
         ptr = (int *)malloc(1024 * 1024 * 1024); // 1GB
 
         // Check if the allocation failed
-        if (ptr == NULL)
-        {
-            printf("Memory allocation failed!\n");
-            break;
-        }
+        // if (ptr == NULL)
+        // {
+        //     printf("Memory allocation failed!\n");
+        //     break;
+        // }
         // Print confirmation that 1GB of memory is allocated
         printf("Allocated 1GB of memory\n");
     }
