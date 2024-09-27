@@ -6,6 +6,8 @@ float average(int numClass, int *classScores);
 int main(void)
 {
     int numClass;
+    printf("Input the number of classes:\n");
+    scanf("%d", &numClass);
 
     /* Fill the code here! */
 
@@ -23,5 +25,4 @@ int main(void)
 
 float average(int numClass, int *classScores)
 {
-    /* Fill the code here! */
 }
