@@ -14,4 +14,5 @@ int main(void)
 char *myStrcpy(char *dst, char *src)
 {
     /* Fill the code here! */
+    
 }

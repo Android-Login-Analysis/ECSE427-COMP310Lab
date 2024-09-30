@@ -11,6 +11,7 @@ int main(void)
     return 0;
 }
 
+
 char *myStrcpy(char *dst, char *src)
 {
     char *tmp = dst;
