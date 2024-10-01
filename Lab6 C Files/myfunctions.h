@@ -9,3 +9,13 @@ void greet(void)
 }
 
 #endif // MYFUNCTIONS_H
+
+// Optimize by pragma once
+// #pragma once
+
+// #include <stdio.h>
+
+// void greet(void)
+// {
+//     printf("Hello, welcome to the program!\n"); // Define a greeting function
+// }
