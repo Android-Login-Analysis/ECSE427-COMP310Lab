@@ -1,0 +1,17 @@
+Ready Queue Management: 
+The linked list is used to manage the ready queue (QUEUE),
+ which stores all process control blocks (PCBs) that are ready to be executed. 
+ This allows the operating system to efficiently handle the scheduling and execution of processes.
+
+Least Recently Used (LRU) Cache: 
+Another linked list manages the LRU cache (LRU_CACHE), 
+which is used to keep track of the least recently accessed pages in memory. 
+This is crucial for implementing page replacement algorithms which ensure that the most 
+infrequently used pages are swapped out of physical memory when space is needed for new pages.
+
+Tracking All PCBs: 
+A separate linked list (ALL_PCB) is maintained to keep a 
+record of all PCBs present in the system. This 
+list is useful for operations that need to access or 
+modify attributes of any process in the system, 
+such as termination procedures or system status checks.

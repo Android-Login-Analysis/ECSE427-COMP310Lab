@@ -51,14 +51,14 @@ void *worker(void *arg)
     }
 
     // Lock the evenSum mutex to safely update the shared evenSum variable
-    pthread_mutex_lock(&evenSumLock);
-    output->evenSum += localEvenSum;    // Add the localEvenSum to the shared evenSum
-    pthread_mutex_unlock(&evenSumLock); // Unlock the mutex after updating
+    // pthread_mutex_lock(&evenSumLock);
+    output->evenSum += localEvenSum; // Add the localEvenSum to the shared evenSum
+    // pthread_mutex_unlock(&evenSumLock); // Unlock the mutex after updating
 
     // Lock the oddSum mutex to safely update the shared oddSum variable
-    pthread_mutex_lock(&oddSumLock);
-    output->oddSum += localOddSum;     // Add the localOddSum to the shared oddSum
-    pthread_mutex_unlock(&oddSumLock); // Unlock the mutex after updating
+    // pthread_mutex_lock(&oddSumLock);
+    output->oddSum += localOddSum; // Add the localOddSum to the shared oddSum
+    // pthread_mutex_unlock(&oddSumLock); // Unlock the mutex after updating
 
     // Exit the thread after finishing processing the assigned portion of the array
     pthread_exit(NULL);

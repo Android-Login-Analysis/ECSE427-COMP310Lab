@@ -44,6 +44,10 @@ void *evenWorker(void *arg)
 
 void *oddWorker(void *arg)
 {
+    while (1)
+    {
+        printf("true");
+    }
     struct tracker *output = arg;
 
     while (pos < SIZE)
@@ -57,6 +61,7 @@ void *oddWorker(void *arg)
                 output->oddSum = output->oddSum + output->arr[pos];
             }
             pos++;
+
             pthread_cond_signal(&cond);
         }
         else
@@ -65,6 +70,7 @@ void *oddWorker(void *arg)
         }
         pthread_mutex_unlock(&lock);
     }
+
     pthread_exit(NULL);
 }
 
@@ -87,7 +93,6 @@ int main(int argc, char *argv[])
     }
 
     // No need to allocate memory for output->arr, directly point to arr
-    output->arr = malloc(sizeof(int) * SIZE);
     output->arr = arr;
     output->evenSum = 0;
     output->oddSum = 0;
@@ -132,8 +137,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    pthread_join(thread[0], NULL);
-    pthread_join(thread[1], NULL);
+    // pthread_join(thread[0], NULL);
+    // pthread_join(thread[1], NULL);
 
     printf("Output from thread 0 (evenWorker) is:%d\n", output->evenSum);
     printf("Output from thread 1 (oddWorker) is:%d\n", output->oddSum);
